@@ -1,0 +1,37 @@
+@mixin grid($col) {
+    display: grid;
+    grid-template-columns: repeat($col , auto);
+}
+
+
+
+.navbar {
+    @apply w-full flex justify-between items-center px-12;
+}
+
+.wrap_logo {
+    @apply flex items-center gap-6;
+
+    .icon_menu {
+        cursor: pointer;
+    }
+}
+
+.nav {
+    @apply flex gap-5 text-base;
+    font-weight: 600;
+
+    .nav_link {
+        display: inline-flex;
+        gap: 10px
+    }
+
+}
+
+.menu_nav {
+    @include grid(3);
+    @apply items-center;
+    gap: 10px;
+
+
+}
