@@ -1,13 +1,17 @@
 footer {
     background-color: #E9E5E5;
-    font-weight: 600;
-    font-size: 16px;
+
+    h4,
+    a {
+        font-weight: 600;
+    }
+
 }
 
 .wrap_footer {
     padding: 100px 100px 30px 100px;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(12, auto);
 
     h4 {
         margin-bottom: 20px;
@@ -22,6 +26,7 @@ footer {
     display: grid;
     grid-template-rows: repeat(2, auto);
     gap: 74px;
+    grid-column: span 4;
 
 
 }
@@ -48,9 +53,11 @@ footer {
     display: grid;
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
+    grid-column: 7 /span 5;
 }
 
 .logo_footer {
-    grid-column: span 2;
+    grid-column: span 12;
+    grid-row: 2;
     @apply flex justify-center items-center;
 }

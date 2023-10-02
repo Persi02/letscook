@@ -12,7 +12,7 @@ export default function Navbar() {
     ]
     return (
 
-        <div className='navbar'>
+        <header className='navbar'>
             <div className="wrap_logo">
                 <div className='icon_menu'><MenuIcon /></div>
                 <LogoIcon />
@@ -25,6 +25,6 @@ export default function Navbar() {
                 <Button className="btn_sing btn--orange " text="Login" />
                 <Button className="btn_sing" text="Sing Up" />
             </div>
-        </div>
+        </header>
     )
 }

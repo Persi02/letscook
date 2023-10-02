@@ -8,6 +8,7 @@ import TwitterIcon from '../../icons/TwitterIcon'
 import Input from '../../General/input/Input'
 import Button from '../../General/button/Button'
 import NavbarItems from '../NavbarItems'
+import Text from '../../General/text/Text'
 
 
 export default function Footer() {
@@ -17,64 +18,39 @@ export default function Footer() {
             link: "/"
         },
         {
+            label: "Dinner",
+            link: "/dinner"
+        },
+        {
             label: "Recipes",
             link: "/recipes"
-        }
-        ,
+        },
+        {
+            label: "Meals",
+            link: "/meals"
+        },
         {
             label: "About us",
             link: "/about"
-        }
-        ,
+        },
+        {
+            label: "Ingredients",
+            link: "/ingredients"
+        },
         {
             label: "Privacy Policy",
             link: "/privacy"
+        },
+        {
+            label: "Product vetting",
+            link: "/product"
         }
         ,
         {
             label: "Terms of service",
             link: "/termsofservice"
         }
-        ,
-        {
-            label: "sitemap",
-            link: "/sitemap"
-        }
-        ,
-        {
-            label: "Contact us",
-            link: "/contact"
-        }
-        ,
-        {
-            label: "Blog",
-            link: "/blog"
-        }
-        ,
-        {
-            label: "Career",
-            link: "/career"
-        }
-        ,
-        {
-            label: "Dinner",
-            link: "/dinner"
-        }
-        ,
-        {
-            label: "Meals",
-            link: "/meals"
-        }
-        ,
-        {
-            label: "Ingredients",
-            link: "/ingredients"
-        }
-        ,
-        {
-            label: "Product vetting",
-            link: "/product"
-        }
+
         ,
         {
             label: "Occasions",
@@ -82,29 +58,41 @@ export default function Footer() {
         }
         ,
         {
+            label: "sitemap",
+            link: "/sitemap"
+        },
+        {
+            label: "Cuisines",
+            link: "/cuisines"
+        },
+        {
+            label: "Contact us",
+            link: "/contact"
+        },
+        {
             label: "KItchen Tips",
             link: "/kitchen"
-        }
-        ,
+        },
+        {
+            label: "Blog",
+            link: "/blog"
+        },
         {
             label: "News",
             link: "/news"
         }
         ,
         {
+            label: "Career",
+            link: "/career"
+        }
+        ,
+
+        {
             label: "Feature",
             link: "/feature"
         }
-        ,
-        {
-            label: "Home",
-            link: "/"
-        }
-        ,
-        {
-            label: "Home",
-            link: "/"
-        }
+
 
     ]
 
@@ -114,7 +102,7 @@ export default function Footer() {
                 <div className='wrap_footer'>
                     <div className="contact_footer">
                         <div className="box_rsociaux">
-                            <h4>Story Connected</h4>
+                            <Text tag="h4" text="Story Connected" size='18px' />
                             <div className="card_rsociaux">
                                 <FacebookIcon />
                                 <InstaIcon />
@@ -123,7 +111,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <div className="newsletter_footer">
-                            <h4>Subscribe to our Newsetter</h4>
+                            <Text tag="h4" text="Subscribe to our Newsetter" size='18px' />
                             <Input type="text" placeholder="E-mail" />
                             <Button className="btn_sing  btn--orange " text="Subscribe" />
                         </div>

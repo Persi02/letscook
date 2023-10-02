@@ -1,3 +1,25 @@
 .test {
     @apply bg-red-400;
 }
+
+
+.wrap_hero {
+    width: 926px;
+}
+
+.d-flex {
+
+    @apply flex items-center justify-center
+}
+
+.section_hero {
+    padding: 77px 0 24px 0;
+}
+
+.section_favorise {
+    padding: 0 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+
+}
