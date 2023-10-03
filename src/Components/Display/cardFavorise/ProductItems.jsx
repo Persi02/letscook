@@ -1,5 +1,5 @@
 import React from 'react'
-import CardFavorise from './cardFavorise/CardFavorise'
+import CardFavorise from './CardFavorise'
 
 export default function ProductItems({ products }) {
     return (

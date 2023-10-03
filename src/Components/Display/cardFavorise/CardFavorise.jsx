@@ -2,7 +2,6 @@ import React from 'react'
 
 import './style.scss'
 import Text from '../../General/text/Text'
-import StarsIcon from '../../icons/StarsIcon'
 import StatusCard from '../../General/statusCard/StatusCard'
 import HalfRating from './StarsRating'
 

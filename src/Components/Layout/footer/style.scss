@@ -54,6 +54,11 @@ footer {
     grid-template-columns: repeat(2, auto);
     grid-template-rows: repeat(2, auto);
     grid-column: 7 /span 5;
+
+    .menu_footer:hover {
+        color: var(--primary);
+        transform: scale(1.02);
+    }
 }
 
 .logo_footer {

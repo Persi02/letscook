@@ -3,23 +3,87 @@
 }
 
 
-.wrap_hero {
-    width: 926px;
-}
 
-.d-flex {
 
-    @apply flex items-center justify-center
-}
+
 
 .section_hero {
-    padding: 77px 0 24px 0;
+    padding: 77px 0 116px 0;
 }
 
 .section_favorise {
-    padding: 0 50px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.card_favorise_product {
+    grid-column: span 5;
+
+    h2 {
+        margin-bottom: 10px;
+    }
+}
+
+.favorise_product {
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
+    margin-bottom: 64px;
+}
 
+.wrap_menu_favorise {
+    padding-bottom: 64px;
+}
+
+.favorise_menu {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: sticky;
+    top: 0;
+
+    a:hover {
+        color: var(--primary);
+    }
+
+}
+
+.wrap_popular {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.popular_category {
+    padding-bottom: 64px;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+}
+
+.get_recipe {
+    @apply flex items-center justify-between;
+    background-color: #E9E5E5;
+}
+
+.card_get {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 40px;
+
+    input {
+        margin-right: 10px;
+    }
+
+    p {
+        max-width: 500px;
+    }
+}
+
+.card_recipe {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
 }
