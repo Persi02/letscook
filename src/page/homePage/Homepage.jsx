@@ -1,7 +1,7 @@
 
 import CardHero from '../../Components/Display/cardHero/CardHero'
 import './style.scss'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Gateaux from '../../assets/image/gateaux.jpg'
 import Burger from '../../assets/image/burger.jpg'
 import Pizza from '../../assets/image/pizza.jpg'
@@ -18,12 +18,15 @@ import Button from '../../Components/General/button/Button'
 import CardRecipe from '../../Components/Display/cardRecipe/CardRecipe'
 import ImgRecipe1 from '../../assets/image/recipe1.png';
 import ImgRecipe2 from '../../assets/image/recipe2.png';
+import CollectionItem from '../../Components/Display/cardCollection/CollectionItem'
+import SplideItem from './SplideItem'
 
 
 
 
 
-const Home = () => {
+const Home = ({ setIsLayout, isLayout }) => {
+    useEffect(() => { !isLayout ? setIsLayout(true) : null }, [isLayout]);
     const productesFavoris = [
         { link: Burger, title: "Cheese burger", status: "public", statusText: "Public" }
         ,
@@ -195,6 +198,21 @@ const Home = () => {
                         <Button className="btn_sing  btn--orange " text="Get" />
                     </div>
                 </div>
+            </section>
+            <section className="wrap_collection">
+                <Text tag="h2" text="Hand-Picked Collections" weight='400' size='30px' />
+                <div className="collection">
+                    <CollectionItem items={productesFavoris} />
+                    <CollectionItem items={sweetyTooth} />
+
+                </div>
+            </section>
+            <section className="latest_recipe wrap">
+                <Text tag="h2" text="Latest recipe" size="20px" weight='600' color='rgba(0, 0, 0, 0.70)' />
+                <div className="carosel">
+                    <SplideItem products={popular} />
+                </div>
+
             </section>
         </main>
 

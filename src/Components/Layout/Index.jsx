@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Footer from './footer/Footer'
 import Navbar from './navbar/Navbar'
 import { Routes, Route } from 'react-router-dom'
@@ -8,28 +8,38 @@ import Contact from '../../page/contact/Contact'
 import Recipe from '../../page/recipe/Recipe'
 import MeanPlanners from '../../page/meanPlanners/MeanPlanners'
 import Courses from '../../page/courses/Courses'
+import Inscription from '../../page/inscription/Inscription'
+import Connexion from '../../page/connexion/Connexion'
 
 
 
 export default function Index() {
+    const [isLayout, setIsLayout] = useState(true);
     return (
+
         <>
-            <Navbar />
+            <Navbar setIsLayout={setIsLayout} isLayout={isLayout} />
             <Routes>
                 <Route path="/"
-                    element={<Home />} />
+                    element={<Home setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/about"
-                    element={<About />} />
+                    element={<About setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/contact"
-                    element={<Contact />} />
+                    element={<Contact setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/recipe"
-                    element={<Recipe />} />
+                    element={<Recipe setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/mealplanners"
-                    element={<MeanPlanners />} />
+                    element={<MeanPlanners setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/courses"
-                    element={<Courses />} />
+                    element={<Courses setIsLayout={setIsLayout} isLayout={isLayout} />} />
+                <Route path="/inscription"
+                    element={<Inscription setIsLayout={setIsLayout} isLayout={isLayout} />} />
+                <Route path="/connexion"
+                    element={<Connexion setIsLayout={setIsLayout} isLayout={isLayout} />} />
             </Routes>
-            <Footer />
+            {isLayout && <Footer />}
         </>
+
+
     )
 }

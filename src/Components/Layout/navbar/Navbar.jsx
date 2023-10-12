@@ -5,6 +5,7 @@ import LogoIcon from '../../icons/LogoIcon'
 import SearchBar from '../../General/searchBar/SearchBar'
 import Button from '../../General/button/Button'
 import NavbarItems from '../NavbarItems'
+import { Link } from 'react-router-dom'
 
 
 export default function Navbar() {
@@ -22,8 +23,12 @@ export default function Navbar() {
             </nav>
             <div className="menu_nav">
                 <SearchBar />
-                <Button className="btn_sing btn--orange " text="Login" />
-                <Button className="btn_sing" text="Sing Up" />
+                <Link to='/connexion' >
+                    <Button className="btn_sing btn--orange " text="Login" />
+                </Link>
+                <Link to='/inscription' >
+                    <Button className="btn_sing" text="Sing Up" />
+                </Link>
             </div>
         </header>
     )
