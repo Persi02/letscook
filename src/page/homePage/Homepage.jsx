@@ -20,12 +20,19 @@ import ImgRecipe1 from '../../assets/image/recipe1.png';
 import ImgRecipe2 from '../../assets/image/recipe2.png';
 import CollectionItem from '../../Components/Display/cardCollection/CollectionItem'
 import SplideItem from './SplideItem'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 
 const Home = ({ setIsLayout, isLayout }) => {
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+            navigate("/connexion")
+        }
+    }, [])
     useEffect(() => { !isLayout ? setIsLayout(true) : null }, [isLayout]);
     const productesFavoris = [
         { link: Burger, title: "Cheese burger", status: "public", statusText: "Public" }

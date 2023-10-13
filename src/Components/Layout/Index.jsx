@@ -15,10 +15,19 @@ import Connexion from '../../page/connexion/Connexion'
 
 export default function Index() {
     const [isLayout, setIsLayout] = useState(true);
+    const [isLogged, setIsLogged] = useState(true);
+    useEffect(() => {
+        if (!localStorage.getItem("token")) {
+            setIsLogged(true)
+        } else {
+            setIsLogged(false)
+        }
+    }, [])
+
     return (
 
         <>
-            <Navbar setIsLayout={setIsLayout} isLayout={isLayout} />
+            <Navbar isLogged={isLogged} setIslogged={setIsLogged} />
             <Routes>
                 <Route path="/"
                     element={<Home setIsLayout={setIsLayout} isLayout={isLayout} />} />
@@ -33,9 +42,9 @@ export default function Index() {
                 <Route path="/courses"
                     element={<Courses setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/inscription"
-                    element={<Inscription setIsLayout={setIsLayout} isLayout={isLayout} />} />
+                    element={<Inscription setIsLayout={setIsLayout} isLayout={isLayout} setIsLogged={setIsLogged} />} />
                 <Route path="/connexion"
-                    element={<Connexion setIsLayout={setIsLayout} isLayout={isLayout} />} />
+                    element={<Connexion setIsLayout={setIsLayout} isLayout={isLayout} setIsLogged={setIsLogged} />} />
             </Routes>
             {isLayout && <Footer />}
         </>

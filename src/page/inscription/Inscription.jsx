@@ -10,6 +10,7 @@ import ImgPub from '../../assets/image/imgconnexion.jpg'
 import Button from '../../Components/General/button/Button'
 import axios from 'axios'
 import { toast } from 'react-hot-toast'
+import { accountService } from '../../_services/account.service'
 
 
 export default function Inscription({ setIsLayout, isLayout }) {
@@ -38,8 +39,11 @@ export default function Inscription({ setIsLayout, isLayout }) {
 
         else {
             try {
-                let res = await axios.post("http://localhost:4400/api/user", user)
-                localStorage.setItem('token', res.data.token);
+                let res = await axios.post("http://localhost:4400/api/user", user);
+                accountService.saveToken(res.data.token);
+                accountService.saveRefresToken(res.data.refreshToken
+                );
+                console.log(res);
                 toast.success("inscription reussie")
                 navigate('/')
             } catch (error) {

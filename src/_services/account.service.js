@@ -1,10 +1,17 @@
 const saveToken = (token) => {
     localStorage.setItem('token', token);
 }
-const removeToken = (token) => {
+const saveRefresToken = (refreshToken
+) => {
+    localStorage.setItem('refreshToken', refreshToken
+    );
+}
+const removeToken = (token, refreshToken
+) => {
     localStorage.removeItem('token', token);
+    localStorage.removeItem('refreshToken', refreshToken);
 }
 
 
 
-export const accountService = { saveToken, removeToken }
+export const accountService = { saveToken, saveRefresToken, removeToken }
