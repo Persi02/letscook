@@ -43,4 +43,19 @@
     input {
         max-width: 180px;
     }
+
+    svg {
+        cursor: pointer;
+        border-radius: 50px;
+
+    }
+
+    svg:hover,
+    .btn_sing:hover {
+        transform: scale(1.1);
+    }
+
+    svg:hover {
+        background: #d9d9d9;
+    }
 }

@@ -8,19 +8,16 @@ import NavbarItems from '../NavbarItems'
 import { Link, useNavigate } from 'react-router-dom'
 import ProfilIcon from '../../icons/ProfilIcon'
 import NotifIcon from '../../icons/NotifIcon'
-import { useEffect } from 'react'
 
 
-export default function Navbar({ isLogged, setIsLogged }) {
+
+export default function Navbar({ isLogged }) {
     const navigate = useNavigate();
 
     const logOut = () => {
         localStorage.clear();
         navigate('/connexion')
-
     }
-
-
 
     const items = [{ label: "Home", link: "/" }, { label: "Recipe", link: "/recipe" }, { label: "Meal Planners", link: "/mealplanners" }, { label: "Courses", link: "/courses" }, { label: "About us", link: "/about" }, { label: "Contact", link: "/contact" }
     ]

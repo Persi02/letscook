@@ -27,12 +27,8 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Home = ({ setIsLayout, isLayout }) => {
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (!localStorage.getItem("token")) {
-            navigate("/connexion")
-        }
-    }, [])
+
+
     useEffect(() => { !isLayout ? setIsLayout(true) : null }, [isLayout]);
     const productesFavoris = [
         { link: Burger, title: "Cheese burger", status: "public", statusText: "Public" }

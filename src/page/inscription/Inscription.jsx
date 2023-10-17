@@ -16,6 +16,11 @@ import { accountService } from '../../_services/account.service'
 export default function Inscription({ setIsLayout, isLayout }) {
     const [user, setUser] = useState({});
     const navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            navigate('/')
+        }
+    })
 
 
     const handleChange = (e) => {
@@ -43,7 +48,6 @@ export default function Inscription({ setIsLayout, isLayout }) {
                 accountService.saveToken(res.data.token);
                 accountService.saveRefresToken(res.data.refreshToken
                 );
-                console.log(res);
                 toast.success("inscription reussie")
                 navigate('/')
             } catch (error) {

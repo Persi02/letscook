@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Footer from './footer/Footer'
 import Navbar from './navbar/Navbar'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 import Home from '../../page/homePage/Homepage'
 import About from '../../page/about/About'
 import Contact from '../../page/contact/Contact'
@@ -17,18 +17,19 @@ export default function Index() {
     const [isLayout, setIsLayout] = useState(true);
     const [isLogged, setIsLogged] = useState(true);
     useEffect(() => {
-        if (!localStorage.getItem("token")) {
-            setIsLogged(true)
+        if (localStorage.getItem('token')) {
+            setIsLogged(false);
         } else {
-            setIsLogged(false)
+            setIsLogged(true);
         }
-    }, [])
+    })
 
     return (
 
         <>
-            <Navbar isLogged={isLogged} setIslogged={setIsLogged} />
+            <Navbar isLogged={isLogged} />
             <Routes>
+
                 <Route path="/"
                     element={<Home setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/about"
@@ -44,7 +45,7 @@ export default function Index() {
                 <Route path="/inscription"
                     element={<Inscription setIsLayout={setIsLayout} isLayout={isLayout} setIsLogged={setIsLogged} />} />
                 <Route path="/connexion"
-                    element={<Connexion setIsLayout={setIsLayout} isLayout={isLayout} setIsLogged={setIsLogged} />} />
+                    element={<Connexion setIsLayout={setIsLayout} isLayout={isLayout} isLogged={isLogged} />} />
             </Routes>
             {isLayout && <Footer />}
         </>

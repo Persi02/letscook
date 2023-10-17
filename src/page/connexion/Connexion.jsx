@@ -11,10 +11,17 @@ import { accountService } from '../../_services/account.service';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-export default function Connexion({ setIsLayout, isLayout, setIsLogged }) {
+export default function Connexion({ setIsLayout, isLayout }) {
 
     const [user, setUser] = useState({});
     const navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            navigate('/')
+        }
+    })
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUser(
@@ -25,14 +32,10 @@ export default function Connexion({ setIsLayout, isLayout, setIsLogged }) {
         )
 
     }
-    useEffect(() => {
-        if (localStorage.getItem("token")) {
-            navigate("/")
-        }
-    }, [])
+
     const login = async (e) => {
         e.preventDefault()
-        if (!user.username || !user.password) {
+        if (!user.email || !user.password) {
             toast.error("veullez remplir tous les champs")
         } else if (user.password.length < 4) {
             toast.error("mot de pass trop court")
@@ -45,12 +48,15 @@ export default function Connexion({ setIsLayout, isLayout, setIsLogged }) {
                     accountService.saveToken(res.data.token);
                     accountService.saveRefresToken(res.data.refreshToken
                     );
+                    localStorage.setItem('username', res.data.user.username);
+                    localStorage.setItem('email', res.data.user.email);
+                    localStorage.setItem('_id', res.data.user._id);
+                    console.log(res);
                     toast.success("Bienvenue")
                     navigate('/')
                 } else {
                     toast.error("information incorrect")
                 }
-
 
             } catch (error) {
                 toast.error("information incorrect")
@@ -72,7 +78,7 @@ export default function Connexion({ setIsLayout, isLayout, setIsLogged }) {
                 </Link>
                 <Text tag='p' text='or' size='14px' weight='600' color="#000" />
                 <form action="">
-                    <TextField label="User-Name" variant="standard" type='text' fullWidth sx={{ marginBottom: 1 }} onChange={handleChange} name='username' required />
+                    <TextField label="E-mail" variant="standard" type='email' fullWidth sx={{ marginBottom: 1 }} onChange={handleChange} name='email' required />
                     <TextField label="Password" variant="standard" type="password" fullWidth required sx={{ marginBottom: 3 }} onChange={handleChange} name='password' />
                     <Link to='' className='forgot'>
                         <Text tag='p' size='10px' weight='400' text='Forget password?' color="#000" />
