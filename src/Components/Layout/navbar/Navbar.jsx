@@ -1,5 +1,5 @@
 import './style.scss'
-import React from 'react'
+import React, { useState } from 'react'
 import MenuIcon from '../../icons/MenuIcon'
 import LogoIcon from '../../icons/LogoIcon'
 import SearchBar from '../../General/searchBar/SearchBar'
@@ -12,6 +12,7 @@ import NotifIcon from '../../icons/NotifIcon'
 
 
 export default function Navbar({ isLogged }) {
+    const [isProfil, setIsProfil] = useState(false)
     const navigate = useNavigate();
 
     const logOut = () => {
@@ -41,7 +42,11 @@ export default function Navbar({ isLogged }) {
                 {isLogged && <Link to='/inscription' >
                     <Button className="btn_sing" text="Sing Up" />
                 </Link>}
-                {!isLogged && <ProfilIcon />}
+                {!isLogged &&
+                    <div className="wrap_profil">
+                        {isProfil && <Link to='/profil'> <img src="" alt="" /></Link>}
+                        {!isProfil && <Link to='/profil'><ProfilIcon /></Link>}
+                    </div>}
                 {!isLogged && <NotifIcon />}
                 {!isLogged && <Button postUser={logOut} className="btn_sing" text="log out" />}
 

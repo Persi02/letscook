@@ -1,9 +1,10 @@
-import React from 'react'
-import { useEffect } from 'react';
+import React, { useEffect } from 'react'
 
-export default function Contact({ setIsLayout, isLayout }) {
+function Profil({ setIsLayout, isLayout }) {
     useEffect(() => { !isLayout ? setIsLayout(true) : null }, [isLayout]);
     return (
         <div>profil</div>
     )
 }
+
+export default Profil

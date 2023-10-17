@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import './style.scss'
 import ImgPub from '../../assets/image/imgconnexion.jpg'
 import CardRecipe from '../../Components/Display/cardRecipe/CardRecipe'
@@ -15,7 +15,7 @@ export default function Connexion({ setIsLayout, isLayout }) {
 
     const [user, setUser] = useState({});
     const navigate = useNavigate();
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (localStorage.getItem('token')) {
             navigate('/')
         }

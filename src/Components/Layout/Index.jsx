@@ -10,6 +10,7 @@ import MeanPlanners from '../../page/meanPlanners/MeanPlanners'
 import Courses from '../../page/courses/Courses'
 import Inscription from '../../page/inscription/Inscription'
 import Connexion from '../../page/connexion/Connexion'
+import Profil from '../../page/Profil/Profil'
 
 
 
@@ -22,7 +23,7 @@ export default function Index() {
         } else {
             setIsLogged(true);
         }
-    })
+    }, [isLayout])
 
     return (
 
@@ -34,6 +35,8 @@ export default function Index() {
                     element={<Home setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/about"
                     element={<About setIsLayout={setIsLayout} isLayout={isLayout} />} />
+                <Route path="/profil"
+                    element={<Profil setIsLayout={setIsLayout} isLayout={isLayout} isLogged={isLogged} />} />
                 <Route path="/contact"
                     element={<Contact setIsLayout={setIsLayout} isLayout={isLayout} />} />
                 <Route path="/recipe"
